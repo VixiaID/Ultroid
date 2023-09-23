@@ -6,9 +6,6 @@
 # <https://github.com/TeamUltroid/pyUltroid/blob/main/LICENSE>.
 
 from . import *
-import uvicorn
-from .fns.api import create_app
-app = create_app()
 
 
 def main():
@@ -108,7 +105,6 @@ def main():
 
 
 if  __name__ == "__main__":
-    uvicorn(app, host="0.0.0.0", port=8080)
     main()
 
     asst.run()
