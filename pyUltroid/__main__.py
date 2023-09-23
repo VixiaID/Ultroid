@@ -6,13 +6,16 @@
 # <https://github.com/TeamUltroid/pyUltroid/blob/main/LICENSE>.
 
 from . import *
+import uvicorn
+from .fns.api import create_app
+app = create_app()
 
 
 def main():
     import os
     import sys
     import time
-
+    
     from .fns.helper import bash, time_formatter, updater
     from .startup.funcs import (
         WasItRestart,
@@ -104,7 +107,9 @@ def main():
     LOGS.info(suc_msg)
 
 
-if __name__ == "__main__":
+if  __name__ == "__main__":
     main()
 
     asst.run()
+
+    uvicorn(app, host="0.0.0.0", port=8080)
