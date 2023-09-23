@@ -4,6 +4,7 @@
 # PLease read the GNU Affero General Public License in <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
 FROM theteamultroid/ultroid:main
+FROM python:3.9
 
 # set timezone
 ENV TZ=Asia/Kolkata
@@ -15,6 +16,10 @@ RUN bash installer.sh
 
 # changing workdir
 WORKDIR "/root/TeamUltroid"
+
+COPY api.py .
+
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8080"]
 
 EXPOSE 8080
 
