@@ -108,8 +108,7 @@ def main():
 
 
 if  __name__ == "__main__":
+    uvicorn(app, host="0.0.0.0", port=8080)
     main()
 
     asst.run()
-
-    uvicorn(app, host="0.0.0.0", port=8080)
